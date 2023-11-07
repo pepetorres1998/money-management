@@ -23,6 +23,26 @@
   border-collapse: collapse;
 }
 
+.table:hover {
+  background-color: #f5f5f5;
+}
+
+.up-new {
+  display: none;
+}
+
+.down-new {
+  display: none;
+}
+
+.table:hover .up-new {
+  display: block;
+}
+
+.table:hover .down-new {
+  display: block;
+}
+
 turbo-frame:last-child .table {
   border-bottom: 1px solid #ccc;
 }
