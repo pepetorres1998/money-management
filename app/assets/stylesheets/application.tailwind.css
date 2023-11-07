@@ -29,14 +29,23 @@
 
 .up-new {
   display: none;
+  position: relative;
+}
+
+.up-new-icon {
+  position: absolute;
+}
+
+.up-new:hover {
+  display: flex;
 }
 
 .down-new {
   display: none;
 }
 
-.table:hover .up-new {
-  display: block;
+.up-new:has(+ .table:hover) {
+  display: flex;
 }
 
 .table:hover .down-new {

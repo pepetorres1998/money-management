@@ -1,4 +1,9 @@
 <%= turbo_frame_tag monthly_expense do %>
+  <div class="flex justify-center up-new">
+    <%= link_to edit_monthly_expense_path(monthly_expense) do %>
+      <i class="fa-solid fa-plus fa-shake up-new-icon -top-2"></i>
+    <% end %>
+  </div>
   <div class="table min-w-full">
     <div><%= monthly_expense.name %></div>
     <div>$<%= monthly_expense.amount %></div>
