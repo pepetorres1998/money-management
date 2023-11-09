@@ -48,10 +48,6 @@
   display: flex;
 }
 
-.table:hover .down-new {
-  display: block;
-}
-
 turbo-frame:last-child .table {
   border-bottom: 1px solid #ccc;
 }

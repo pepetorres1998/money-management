@@ -13,6 +13,15 @@ class MonthlyExpensesController < ApplicationController
   # GET /monthly_expenses/new
   def new
     @monthly_expense = MonthlyExpense.new
+    @dom_id = params[:dom_id]
+    render turbo_stream: [
+      turbo_stream.remove("form_monthly_expense"),
+      turbo_stream.before(
+        params[:dom_id],
+        partial: "form",
+        locals: { monthly_expense: @monthly_expense }
+      )
+    ]
   end
 
   # GET /monthly_expenses/1/edit
@@ -27,11 +36,7 @@ class MonthlyExpensesController < ApplicationController
       flash.now[:notice] = "MonthlyExpense was successfully created."
       render turbo_stream: [
         turbo_stream.prepend("monthly_expenses", @monthly_expense),
-        turbo_stream.replace(
-          "form_monthly_expense",
-          partial: "form",
-          locals: { monthly_expense: MonthlyExpense.new }
-        )
+        turbo_stream.remove("form_monthly_expense")
       ]
     else
       render :new, status: :unprocessable_entity

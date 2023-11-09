@@ -1,6 +1,6 @@
 <%= form_with model: monthly_expense, id: dom_id(monthly_expense, "form"), class: "table min-w-full" do |form| %>
   <div>
-    <%= form.text_field :name, autofocus: true, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
+    <%= form.text_field :name, autofocus: true, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full", onFocus: "this.select();" %>
     <%= inline_error_for(:name, monthly_expense) %>
   </div>
   <div>

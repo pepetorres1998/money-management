@@ -1,7 +1,7 @@
-<%= turbo_frame_tag monthly_expense do %>
+<%= turbo_frame_tag monthly_expense, id: dom_id(monthly_expense) do %>
   <div class="flex justify-center up-new">
-    <%= link_to edit_monthly_expense_path(monthly_expense) do %>
-      <i class="fa-solid fa-plus fa-shake up-new-icon -top-2"></i>
+    <%= link_to new_monthly_expense_path(dom_id: dom_id(monthly_expense)) do %>
+      <i class="fa-solid fa-circle-plus fa-xl up-new-icon -top-1"></i>
     <% end %>
   </div>
   <div class="table min-w-full">
@@ -14,12 +14,6 @@
       <% end %>
       <%= link_to monthly_expense_path(monthly_expense), data: { turbo_method: :delete }, class: "basis-1/4" do %>
         <svg class="inline-block w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-      <% end %>
-      <%= link_to edit_monthly_expense_path(monthly_expense), class: "basis-1/4 up-new" do %>
-        <i class="fa-solid fa-arrow-up fa-bounce"></i>
-      <% end %>
-      <%= link_to edit_monthly_expense_path(monthly_expense), class: "basis-1/4 down-new" do %>
-        <i class="fa-solid fa-arrow-down fa-bounce"></i>
       <% end %>
     </div>
   </div>
