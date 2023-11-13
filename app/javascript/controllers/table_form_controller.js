@@ -1,12 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["form", "startingInput"]
+  static targets = ["form", "startingInput", "cancelButton", "submitButton"]
 
-  close(event) {
-    console.log("esc pressioned")
-    console.log(this.formTarget)
-    this.formTarget.classList.add("hidden")
+  close() {
+    if (this.formTarget.id === "form_monthly_expense") {
+      this.formTarget.classList.add("hidden")
+      this.formTarget.classList.remove("table")
+    } else {
+      this.cancelButtonTarget.click()
+      this.submitButtonTarget.click()
+    }
   }
 
   connect() {
