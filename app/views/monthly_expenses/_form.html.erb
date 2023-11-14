@@ -1,4 +1,4 @@
-<%= form_with model: monthly_expense, id: dom_id(monthly_expense, "form"), class: "table min-w-full",
+<%= form_with model: monthly_expense, id: dom_id(monthly_expense, "form"), class: "grid grid-cols-4 gap-x-8 items-end p-4 min-w-full border-l border-t border-r border-gray-300 border-collapse",
 data: { controller: "table-form", action: "keydown.esc->table-form#close", table_form_target: "form" } do |form| %>
   <div>
     <%= form.text_field :name, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full", data: { table_form_target: "startingInput" } %>
@@ -13,7 +13,9 @@ data: { controller: "table-form", action: "keydown.esc->table-form#close", table
     <%= inline_error_for(:description, monthly_expense) %>
   </div>
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer", data: { table_form_target: "submitButton" } %>
+    <%= form.button nil, class: "rounded-full inline-block px-4 py-2 bg-slate-500 text-white", data: { table_form_target: "submitButton" } do %>
+      <i class="fa-solid fa-circle-right fa-lg"></i>
+    <% end %>
   </div>
   <%= button_tag "Reset", type: :reset, class: "hidden", data: { table_form_target: "cancelButton" } %>
 <% end %>

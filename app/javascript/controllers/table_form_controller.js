@@ -6,7 +6,6 @@ export default class extends Controller {
   close() {
     if (this.formTarget.id === "form_monthly_expense") {
       this.formTarget.classList.add("hidden")
-      this.formTarget.classList.remove("table")
     } else {
       this.cancelButtonTarget.click()
       this.submitButtonTarget.click()
