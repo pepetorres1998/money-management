@@ -39,7 +39,13 @@ class MonthlyExpensesController < ApplicationController
         turbo_stream.remove("form_monthly_expense")
       ]
     else
-      render :new, status: :unprocessable_entity
+      render turbo_stream: [
+        turbo_stream.replace(
+          "form_monthly_expense",
+          partial: "form",
+          locals: { monthly_expense: @monthly_expense }
+        )
+      ]
     end
   end
 

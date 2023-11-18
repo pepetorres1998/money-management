@@ -1,15 +1,16 @@
-<%= turbo_frame_tag monthly_expense, id: dom_id(monthly_expense) do %>
-  <div class="flex justify-center up-new">
+<%= turbo_frame_tag monthly_expense, id: dom_id(monthly_expense), class: "group block even:bg-slate-50 last:border-b hover:bg-slate-100",
+data: { controller: "editable-form", action: "dblclick->editable-form#edit" } do %>
+  <div class="justify-center hidden relative group-hover:flex">
     <%= link_to new_monthly_expense_path(dom_id: dom_id(monthly_expense)) do %>
-      <i class="fa-solid fa-circle-plus fa-xl up-new-icon -top-1"></i>
+      <i class="fa-solid fa-circle-plus absolute fa-xl -top-1"></i>
     <% end %>
   </div>
-  <div class="table min-w-full">
+  <div class="grid grid-cols-4 gap-x-8 items-end p-4 min-w-full border-l border-t border-r border-gray-300 border-collapse">
     <div><%= monthly_expense.name %></div>
     <div>$<%= monthly_expense.amount %></div>
     <div><%= monthly_expense.description %></div>
     <div class="flex flex-row">
-      <%= link_to edit_monthly_expense_path(monthly_expense), class: "basis-1/4" do %>
+      <%= link_to edit_monthly_expense_path(monthly_expense), class: "basis-1/4", data: { editable_form_target: "editButton" } do %>
         <svg class="inline-block w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
       <% end %>
       <%= link_to monthly_expense_path(monthly_expense), data: { turbo_method: :delete }, class: "basis-1/4" do %>
