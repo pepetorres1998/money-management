@@ -1,24 +1,37 @@
-# README
+# Monthly Expenses App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a demo project to learn how hotwire and Tailwind works.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- Monthly Expenses lists SPA, hot reaload with Hotwire.
+- Importmaps, no js build.
+- Tailwind feel and look.
 
-* System dependencies
 
-* Configuration
+## Installation
 
-* Database creation
+Download repo.
 
-* Database initialization
+```bash
+  git clone git@github.com:pepetorres1998/money-management.git
+  cd money-management/
+```
 
-* How to run the test suite
+Install libraries.
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bundle install
+```
 
-* Deployment instructions
+Run migrations.
+```bash
+bundle exec rails db:create
+bundle exec rails db:setup
+```
 
-* ...
+Run the project.
+
+```bash
+./bin/dev
+```
